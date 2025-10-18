@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   namespace :attend, defaults: { business: 'attend' } do
     namespace :admin, defaults: { namespace: 'admin' } do
       resources :financial_months do
@@ -66,5 +65,4 @@ Rails.application.routes.draw do
       resources :overtimes
     end
   end
-
 end
