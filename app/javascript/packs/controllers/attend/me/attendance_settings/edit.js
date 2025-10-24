@@ -1,1 +1,0 @@
-$('#attendance_setting_on_time').dropdown();
