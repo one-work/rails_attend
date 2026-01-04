@@ -266,7 +266,7 @@ module Attend
         self.interval_absence_id = nil
       end
 
-      _interval_seconds = TimeHelper.interval(self.interval_time[0], self.interval_time[1], interval_start: '12:30')
+      _interval_seconds = TimeUtil.interval(self.interval_time[0], self.interval_time[1], interval_start: '12:30')
       interval = (_interval_seconds / 1800.0).ceil / 2.0
       self.interval_hours = interval
     end

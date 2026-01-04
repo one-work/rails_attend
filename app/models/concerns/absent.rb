@@ -52,7 +52,7 @@ class Absent
 
 	# for china
 	def china_annual_days
-		dis = TimeHelper.exact_distance_time member.join_on, Date.today
+		dis = TimeUtil.exact_distance_time member.join_on, Date.today
 		total_years = dis[:year] + (dis[:month] + member.previous_months.to_i) / 12
 		if total_years >= 1 && total_years < 10
 			base = 5
@@ -74,7 +74,7 @@ class Absent
 	end
 
 	def switzerland_annual_days
-    dis = TimeHelper.exact_distance_time member.join_on, Date.today
+    dis = TimeUtil.exact_distance_time member.join_on, Date.today
 		_years = Date.today.year - member.join_on.year
 		join_month = member.join_on.month
 		if _years == 0
