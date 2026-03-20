@@ -6,7 +6,7 @@ gem 'puma'
 gem 'pg'
 gem 'propshaft'
 
-gem 'rails_com', github: 'work-design/rails_com'
+gem 'rails_com', path: '../rails_com'
 
 gem 'amazing_print'
 group :development, :test do
