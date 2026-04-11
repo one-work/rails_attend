@@ -1,3 +1,4 @@
-<%= link_to({ controller: 'attendance_logs', action: 'new', attendance_id: params[:attendance_id] }, data: { turbo_frame: 'modal' }, class: 'button is-link is-small') do %>
-  <i class="fa-light fa-plus"></i><span><%= t('.new') %></span>
+<%= button_to({ controller: 'attendance_logs', action: 'new', attendance_id: params[:attendance_id] }, class: 'button is-rounded is-link') do %>
+  <%= svg_tag 'plus' %>
+  <span><%= t('.new') %></span>
 <% end %>
