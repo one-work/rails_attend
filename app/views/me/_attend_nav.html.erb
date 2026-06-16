@@ -1,4 +1,4 @@
-<% if role_permit?(business: 'attend', namespace: 'me') %>
+<% if any_role?(business: 'attend', namespace: 'me') %>
   <div class="menu-label">
     <span><%= t('attend.me.title') %></span>
     <%= link_to({ controller: 'attend/admin/financial_months' }, aria: { label: '管理' }) do %>

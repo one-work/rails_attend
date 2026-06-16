@@ -1,4 +1,4 @@
-<div data-controller="menu" class="<%= role_permit?(business: 'attend', namespace: 'admin') ? 'menu ex-accordion is-active' : 'display-none' %>">
+<div data-controller="menu" class="<%= any_role?(business: 'attend', namespace: 'admin') ? 'menu ex-accordion is-active' : 'display-none' %>">
   <div class="menu-label">
     <div>
       <i class="fa-solid fa-fw fa-calendar-alt"></i>
