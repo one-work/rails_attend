@@ -56,21 +56,6 @@ module Attend
       after_create_commit :send_notification
 
       delegate :name, to: :member, prefix: true
-      acts_as_notify(
-        :default,
-        only: [:hours, :start_at, :finish_at, :note],
-        methods: [:member_name, :type_i18n, :state_i18n]
-      )
-      acts_as_notify(
-        :request,
-        only: [:hours, :start_at, :finish_at, :note],
-        methods: [:member_name, :type_i18n, :state_i18n],
-        cc_emails: [
-          -> (o){ o.member.office&.absence_email },
-          -> (o){ o.member.email },
-          -> (o){ o.cc_emails }
-        ]
-      )
     end
 
     def do_trigger(params = {})

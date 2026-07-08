@@ -8,12 +8,12 @@ module Attend
       attribute :kind, :string, comment: 'holiday, workday'
       attribute :scope, :string
 
-      belongs_to :organ, optional: true
-
       enum :kind, {
         holiday: 'holiday',
         workday: 'workday'
       }
+
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
     end
 
 

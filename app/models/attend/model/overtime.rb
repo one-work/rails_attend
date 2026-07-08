@@ -26,17 +26,6 @@ module Attend
       validate :validate_same_date
 
       delegate :name, to: :member, prefix: true
-
-      acts_as_notify(
-        :default,
-        only: [:hours, :start_at, :finish_at, :note],
-        methods: [:state_i18n]
-      )
-      acts_as_notify(
-        :request,
-        only: [:hours, :start_at, :finish_at, :note],
-        methods: [:member_name]
-      )
     end
 
     def do_trigger(params = {})

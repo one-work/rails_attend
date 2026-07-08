@@ -1,0 +1,21 @@
+Attend::Absence:
+  default:
+    only: ['hours', 'start_at', 'finish_at', 'note']
+    methods: ['member_name', 'type_i18n', 'state_i18n']
+  request:
+    only: ['hours', 'start_at', 'finish_at', 'note']
+    methods: ['member_name', 'type_i18n', 'state_i18n']
+Attend::AttendanceLog:
+  default:
+    only: ['record_at', 'note']
+    methods: ['member_name', 'state_i18n']
+  request:
+    only: ['record_at', 'note']
+    methods: ['member_name']
+Attend::Overtime:
+  default:
+    only: ['hours', 'start_at', 'finish_at', 'note']
+    methods: ['state_i18n']
+  request:
+    only: ['hours', 'start_at', 'finish_at', 'note']
+    methods: ['member_name' ]

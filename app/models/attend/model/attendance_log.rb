@@ -26,7 +26,7 @@ module Attend
         init: 'init',
         valid: 'valid',
         invalid: 'invalid'
-      }, prefix: true
+      }, default: 'init', prefix: true
 
       enum :kind, {
         start_at: 'start_at',
@@ -42,16 +42,8 @@ module Attend
       }
 
       delegate :name, to: :member, prefix: true
-      acts_as_notify :default,
-                     only: [:record_at, :note],
-                     methods: [:member_name, :state_i18n]
-      acts_as_notify :request,
-                     only: [:record_at, :note],
-                     methods: [:member_name]
 
-      after_initialize if: :new_record? do
-        self.state ||= 'init'
-      end
+
       before_save :sync_member_id, if: -> { number_changed? }
     end
 

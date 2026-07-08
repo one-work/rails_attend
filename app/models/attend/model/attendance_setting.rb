@@ -17,12 +17,8 @@ module Attend
         denied: 'denied'
       }, default: 'init'
 
-      after_initialize do
-        self.compute_off_time
-      end
+      after_initialize :compute_off_time, if: :new_record?
       before_save :compute_off_time, if: -> { on_time_changed? }
-
-      acts_as_notify
     end
 
     def do_trigger(params = {})

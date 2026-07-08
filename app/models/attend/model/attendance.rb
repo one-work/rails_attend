@@ -21,18 +21,18 @@ module Attend
       attribute :workday, :boolean, default: true
       attribute :processed, :boolean, default: false
 
-      belongs_to :member
-      belongs_to :interval_absence, class_name: 'Absence', optional: true
-      belongs_to :late_absence, class_name: 'Absence', optional: true
-      belongs_to :leave_absence, class_name: 'Absence', optional: true
-      has_many :attendance_logs, dependent: :nullify
-
       enum :kind, {
         belated: 'belated',
         asked_leave: 'asked_leave',
         no_meal: 'no_meal',
         allowance: 'allowance'
       }
+
+      belongs_to :member
+      belongs_to :interval_absence, class_name: 'Absence', optional: true
+      belongs_to :late_absence, class_name: 'Absence', optional: true
+      belongs_to :leave_absence, class_name: 'Absence', optional: true
+      has_many :attendance_logs, dependent: :nullify
 
       validates :attend_on, uniqueness: { scope: :member_id }
       before_save :sync_workday, if: -> { attend_on_changed? }

@@ -9,10 +9,10 @@ module Attend
       attribute :allowance_days, :integer
       attribute :late_days, :integer
       attribute :absence_redeeming_hours, :float
-      attribute :costed_absence, :string, limit: 1024
+      attribute :costed_absence, :string
       attribute :cost_absence_hours, :float
-      attribute :free_absence, :string, limit: 1024
-      attribute :redeeming_absence, :string, limit: 1024
+      attribute :free_absence, :string
+      attribute :redeeming_absence, :string
       attribute :holiday_redeeming_hours, :float
       attribute :processed, :boolean, default: false
 
