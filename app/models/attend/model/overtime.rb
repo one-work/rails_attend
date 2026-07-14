@@ -35,8 +35,7 @@ module Attend
         self.save!
         to_notification(
           member: self.member,
-          link: url_helpers.oa_overtimes_url(id: self.id),
-          verbose: true
+          link: url_helpers.oa_overtimes_url(id: self.id)
         )
       end
     end
@@ -44,14 +43,8 @@ module Attend
     def send_notification
       to_notification(
         member: self.member.parent,
-        cc_emails: [
-          self.member.office&.absence_email,
-          self.member.email,
-          *cc_emails
-        ],
         link: url_helpers.my_admin_overtimes_url(id: self.id),
-        code: :request,
-        verbose: true
+        code: :request
       )
     end
 

@@ -61,8 +61,7 @@ module Attend
         self.save!
         to_notification(
           member: member,
-          link: url_helpers.oa_attendance_logs_url(id: self.id),
-          verbose: true,
+          link: url_helpers.oa_attendance_logs_url(id: self.id)
         )
       end
     end
@@ -70,13 +69,9 @@ module Attend
     def send_notification
       to_notification(
         member: member.parent,
-        cc_emails: [
-          self.member.office&.absence_email
-        ],
         link: url_helpers.my_admin_attendance_logs_url(id: self.id),
-        code: :request,
-        verbose: true,
-        )
+        code: :request
+      )
     end
 
     def editable?

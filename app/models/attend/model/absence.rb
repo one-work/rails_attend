@@ -69,8 +69,7 @@ module Attend
         self.save!
         to_notification(
           member: member,
-          link: url_helpers.oa_absences_url(id: self.id),
-          verbose: true
+          link: url_helpers.oa_absences_url(id: self.id)
         )
       end
     end
@@ -79,8 +78,7 @@ module Attend
       to_notification(
         member: member.parent,
         link: url_helpers.my_admin_absences_url(id: self.id),
-        code: :request,
-        verbose: true
+        code: :request
       )
     end
 
