@@ -1,7 +1,7 @@
 module Attend
   class Me::AbsencesController < Me::BaseController
     before_action :set_absence, only: [:show, :edit, :update, :destroy]
-    skip_before_action :verify_authenticity_token, only: [:redeeming] #todo removed
+    skip_forgery_protection only: [:redeeming] #todo removed
 
     def index
       @absences = current_member.absences.order(id: :desc).page(params[:page])
